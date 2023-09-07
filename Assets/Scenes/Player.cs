@@ -41,7 +41,6 @@ public class Player : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {
-
             countdown -= Time.deltaTime;
             if (countdown <= 0)
             {
@@ -55,7 +54,7 @@ public class Player : MonoBehaviour
 
                     Vector3 direction = hitPosition - transform.position;
 
-                    var proj = Instantiate(this.projectile, transform.position + direction.normalized * 1, Quaternion.identity);
+                    var proj = Instantiate(this.projectile, transform.position + direction.normalized * 1.5f, Quaternion.identity);
                     proj.GetComponent<Rigidbody>().velocity = direction.normalized * projectileVelocity;
                     proj.transform.forward = direction.normalized;
                 }
