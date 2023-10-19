@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 5574550620824029780}
   - component: {fileID: 3548734368074881117}
   - component: {fileID: 648002048551829770}
-  - component: {fileID: 3770241072991375553}
   - component: {fileID: 5859798597024441258}
   - component: {fileID: 2808775050064012632}
+  - component: {fileID: 7332212506724383776}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: SuicideBomber
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -108,21 +108,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3770241072991375553
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1474547785221060719}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88bb129a531064044a875e41028089a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 20
-  damage: 10
-  explosion: {fileID: 2700432222587110169, guid: 9735c884241464d4ea23c62207986775, type: 3}
 --- !u!195 &5859798597024441258
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -172,3 +157,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &7332212506724383776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1474547785221060719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e76fbfcd37ff470cb42f73aab063e681, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  faction: 1
+  maxHealth: 100
+  health: 20
+  agent: {fileID: 0}
+  player: {fileID: 0}
+  explosion: {fileID: 2700432222587110169, guid: 9735c884241464d4ea23c62207986775, type: 3}
+  suicideDamage: 10

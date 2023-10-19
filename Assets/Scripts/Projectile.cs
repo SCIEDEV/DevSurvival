@@ -5,12 +5,15 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    public int faction;
+
+    public float damage;
     private void OnCollisionEnter(Collision collision)
     {
-        var enemy = collision.gameObject.GetComponent<Enemy>();
-        if (enemy != null)
+        var health = collision.gameObject.GetComponent<BaseHealth>();
+        if (health != null && health.faction != faction)
         {
-            enemy.TakeDamage(8);
+            health.TakeDamage(damage);
         }
         
         Destroy(gameObject);

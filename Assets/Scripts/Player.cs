@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
-public class Player : MonoBehaviour
+public class Player : BaseHealth
 {
     public float moveSpeed = 4.0f;
 
@@ -17,15 +17,10 @@ public class Player : MonoBehaviour
 
     public RectTransform healthBar;
 
-    public float playerMaxHealth = 100;
-    private float playerHealth;
-
     // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController>();
-
-        playerHealth = playerMaxHealth;
     }
 
     // Update is called once per frame
@@ -79,12 +74,12 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float damage)
+    public override void TakeDamage(float damage)
     {
-        playerHealth -= damage;
+        base.TakeDamage(damage);
 
         //calculate percentage (0-1) of player health
-        float percentage = playerHealth / playerMaxHealth;
+        float percentage = health / maxHealth;
 
         //get the MAX width of the healthbar (through finding the width of its parent)
         float parentWidth = ((RectTransform)healthBar.parent.transform).rect.width;
